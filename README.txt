@@ -1,0 +1,1 @@
+To run program use run kevMAIN.py with python3 alongside kevASSEMBLER.py,kevCPUEMU.py and kevASM.asm
