@@ -1,32 +1,40 @@
-Central Processing Unit Emulator
-The project involved designing an emulation of a central processing unit (CPU) with a 16-bit architecture and an instruction set. The CPU had the ability to fetch and decode instructions, manipulate memory, stack, and registers, and perform basic arithmetic and logic operations. 
-The project included the development of an assembler to compile assembly code into machine code, and an emulator to execute the machine code which was then displayed through virtual memory. 
-The implementation was done in Python3 using Visual Studio Code and required defining an instruction set, designing an assembler, and developing a CPU emulator with control logic, a decoder, and a memory display function.
+<!-- ABOUT THE PROJECT -->
+# Central Processing Unit Emulator
+
+​​Design your own computer and instruction set.  It can be simple like MARIE but have your twist on OPCODES and why you chose them.  It should have a valid ISA, which means all the bits are defined in the machine code and how they are decoded.  You don't have to define all the logical circuits, just block diagrams, but you should define the micro-instructions or steps that each of your opcodes implements.  The ASM part could be an example program.   If it is more than 16 opcodes then you don't have to build an assembler and/or an emulator.  You can build an interpreter that reads the assembly code test and executes it directly.  The issue to handle is forward references, normally it's easier to make two passes over the code, the first to find the addresses (labels) and the second time to execute the code.  Using a fixed instruction size makes this easier.  See me if you need extra guidance.
+
+* The project involved designing an emulation of a central processing unit (CPU) with a 16-bit architecture and an instruction set. The CPU had the ability to fetch and decode instructions, manipulate memory, stack, and registers, and perform basic arithmetic and logic operations. 
+* The project included the development of an assembler to compile assembly code into machine code, and an emulator to execute the machine code which was then displayed through virtual memory. 
+* The implementation was done in Python3 using Visual Studio Code and required defining an instruction set, designing an assembler, and developing a CPU emulator with control logic, a decoder, and a memory display function.
 
 
-Basic Design
-Run assembler with assembly code file
-Take a file with assembly code and turn it into machine code and put it in a binary file
-Make one pass to find labels
-Make a pass to convert opcodes
+# Project Outline
+
+## Basic Design
+1. Run assembler with assembly code file
+   1. Take a file with assembly code and turn it into machine code and put it in a binary file
+      1. Make one pass to find labels
+      2. Make a pass to convert opcodes
+2. Run the CPU emulator with the binary file
+   1. Write the instructions to beginning of memory and start reading each instruction one by one
+      1. Fetch each instruction from memory
+      2. Decode the opcode and data
+      3. Execute the instruction
+
+## Assembler
+1. Starts by clearing a binary file for the instructions to be written to
+2. Read asm file and make a pass to find labels and write them to the binary file
+3. Read asm file and make another pass to convert opcodes and write to binary file
 
 
-Run the CPU emulator with the binary file
-Write the instructions to beginning of memory and start reading each instruction one by one
-Fetch each instruction from memory
-Decode the opcode and data
-Execute the instruction
+## OPCode Conversion
+1. Determine what operations needs to converted
+2. Convert the instruction via the several operation functions
+3. Write the conversion to the bin file
 
-Assembler
-Starts by clearing a binary file for the instructions to be written to
-Read asm file and make a pass to find labels and write them to the binary file
-Read asm file and make another pass to convert opcodes and write to binary file
 
-OPCode Conversion
-Determine what operations needs to converted
-Convert the instruction via the several operation functions
-Write the conversion to the bin file
-
+# Instruction Set Operation Codes
+```asm
 OPCODES
 LOAD OPERATIONS
 LD R1, 0xABCD     - 00 RR AB CD       Load register with given value
@@ -65,5 +73,13 @@ HALT              - FE FE FF FF       Stop the program completly
 #
 NO OPERATION
 NOOP              - FF FF FF FF       No operation code inputed
+```
 
+### Usage
 
+To run program use run kevMAIN.py with python3 alongside kevASSEMBLER.py,kevCPUEMU.py and kevASM.asm
+
+* Run:
+   ```sh
+   python3 kevMAIN.py
+   ```
