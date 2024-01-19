@@ -1,14 +1,13 @@
 <!-- ABOUT THE PROJECT -->
 # Central Processing Unit Emulator
 
+## Project Outline
+
 ​​Design your own computer and instruction set.  It can be simple like MARIE but have your twist on OPCODES and why you chose them.  It should have a valid ISA, which means all the bits are defined in the machine code and how they are decoded.  You don't have to define all the logical circuits, just block diagrams, but you should define the micro-instructions or steps that each of your opcodes implements.  The ASM part could be an example program.   If it is more than 16 opcodes then you don't have to build an assembler and/or an emulator.  You can build an interpreter that reads the assembly code test and executes it directly.  The issue to handle is forward references, normally it's easier to make two passes over the code, the first to find the addresses (labels) and the second time to execute the code.  Using a fixed instruction size makes this easier.  See me if you need extra guidance.
 
 * The project involved designing an emulation of a central processing unit (CPU) with a 16-bit architecture and an instruction set. The CPU had the ability to fetch and decode instructions, manipulate memory, stack, and registers, and perform basic arithmetic and logic operations. 
 * The project included the development of an assembler to compile assembly code into machine code, and an emulator to execute the machine code which was then displayed through virtual memory. 
 * The implementation was done in Python3 using Visual Studio Code and required defining an instruction set, designing an assembler, and developing a CPU emulator with control logic, a decoder, and a memory display function.
-
-
-# Project Outline
 
 ## Basic Design
 1. Run assembler with assembly code file
